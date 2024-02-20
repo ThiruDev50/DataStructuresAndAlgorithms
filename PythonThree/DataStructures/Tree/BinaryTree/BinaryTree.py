@@ -68,7 +68,19 @@ class Solution:
             if node.left:
                 stack.append((node.left,height))
         return maxHeight
+    def diameterOfBinaryTree(self, root) :
+        d={}
+        def dfs_postorder(root):
+            if root:
+                dfs_postorder(root.left)
+                dfs_postorder(root.right)
 
+                left_height=d.get(root.left,0)-1
+                right_height=d.get(root.left,0)-1
+
+                d[root.val]=left_height+right_height
+        print(d)
+        return 0
 class DepthFirstSearch:
     # <Root> <Left> <Right>
     def dfs_preorder_iteratively(self,root):
@@ -108,9 +120,19 @@ class DepthFirstSearch:
     def dfs_postorder_iteratively(self,root):
         stack=[]
         
+    # <Left> <Right> <Root>
+    def dfs_postorder_recursively(self,root):
+        if root:
+            self.dfs_postorder_recursively(root.left)
+            self.dfs_postorder_recursively(root.right)
+            print(root.val)
+            
+    
+    
 inp=[4,2,7,1,3,6,9]
 created_binary_tree=BinaryTreeBase.create_binary_tree(inp)
 sol=DepthFirstSearch()
-res=sol.dfs_preorder_iteratively(created_binary_tree)
+res=sol.dfs_postorder_recursively(created_binary_tree)
 
-print(res)
+if res:
+    print(res)

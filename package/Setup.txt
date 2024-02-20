@@ -1,0 +1,4 @@
+Once the respective wheel file under package folder, 
+
+Run this command pip install package/tdk_scripts-0.0.1-py3-none-any.whl
+
