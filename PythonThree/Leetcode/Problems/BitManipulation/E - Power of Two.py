@@ -1,5 +1,5 @@
 
-from tdkscripts import TestingScript
+from tdkscripts import LeetCodeTestingScript
 
 
 '''
@@ -60,6 +60,7 @@ class Solution:
     
     # region Section 1: Explanation
     '''
+    Solution Desc : Bit Manipulation
     All powers of 2 is the starting point to incease a bit length. 7(111) is 3 bit length, 8(1000) is 4 bit length. 15(1111) is 4 bit length 16(10000) is 5 bit length
     If we do bitwise & with a number and its prev numb, then if the res is 0, It is a power of 2
     
@@ -82,9 +83,21 @@ class Solution:
     
     
 tests_configs={
-    "compare_with_solution":True,
-    "enable_log":True,
-    "execute_test_case":[1,2,3],
+    "compare_with_solution":0,
+    "include_test_exec_comparison":0,
+    "include_failed_testcase_comparison":1,
+    "include_overall_memory_consumed":1,
+    "enable_log":0,
+    "memory_log":{
+        "enable_memory_log":1,
+        "memory_log_details":{
+            "enable_peak_memory":1,
+            "enable_current_memory":0,
+            "byte":1,
+            "kilobyte":0,
+            "megabyte":0,
+        }
+        },
     "test_cases":[
         {
             "Input":[1],
@@ -103,5 +116,5 @@ tests_configs={
 }
 
 sol=Solution()
-test= TestingScript(sol)
+test= LeetCodeTestingScript(sol)
 test.run_tests(sol.isPowerOfTwo,tests_configs)
